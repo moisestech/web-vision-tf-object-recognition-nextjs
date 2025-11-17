@@ -2,6 +2,25 @@
 
 A one-day, visually impressive Next.js 15 demo with **on-device object detection** and **face anonymization** for the Stop Ocean Pollution mission.
 
+## 📑 Table of Contents
+
+- [✨ Features](#-features)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [🚀 Setup](#-setup)
+- [📱 Usage](#-usage)
+  - [🏠 Home Page](#-home-page)
+  - [📷 Camera Tracking Page](#-camera-tracking-page)
+  - [✅ After Capturing](#-after-capturing)
+  - [🎬 Demo Mode](#-demo-mode)
+  - [🏛️ Municipality Selection](#️-municipality-selection)
+  - [⚙️ Admin Panel](#️-admin-panel)
+- [💻 Development](#-development)
+- [⚠️ Known Limitations](#️-known-limitations)
+- [🔧 Troubleshooting](#-troubleshooting)
+- [📁 Project Structure](#-project-structure)
+- [📚 Documentation](#-documentation)
+- [📄 License](#-license)
+
 ## ✨ Features
 
 - 🤖 **On-device AI**: All AI runs locally in the browser (no PII upload)
@@ -60,15 +79,59 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ## 📱 Usage
 
-### 📷 Camera Mode
+### 🏠 Home Page
 
-1. Navigate to `/scan`
-2. Allow camera access when prompted
-3. Point camera at objects (bottles, cups, utensils)
-4. Real-time detection overlay appears
-5. Click "Capture & Anonymize" to capture and blur faces
-6. Review and adjust counts/fill percentage
-7. Save to IndexedDB
+The home page serves as the entry point to the application, featuring:
+
+- **Municipality Showcase**: Display cards for each supported municipality
+- **Quick Navigation**: Click any municipality card to start scanning for that specific municipality
+- **Visual Design**: Clean, modern interface with ocean-themed styling
+- **Responsive Layout**: Optimized for both desktop and mobile devices
+
+*Note: This section will be updated with more details after deployment.*
+
+### 📷 Camera Tracking Page
+
+The camera tracking page (`/scan`) is where the real-time object detection happens:
+
+- **Live Camera Feed**: Access device camera or use demo video mode
+- **Real-time Detection**: COCO-SSD model detects bottles, cups, and utensils in real-time
+- **Visual Overlay**: Detection boxes and labels appear over detected objects
+- **Municipality Selector**: Dropdown to switch between municipalities during scanning
+- **Capture Button**: "Capture & Anonymize" button to capture the current frame
+- **Face Blurring**: Automatic face detection and blurring on capture using BlazeFace
+- **Performance Optimized**: Detection throttled to every 8 frames for smooth performance
+
+**Key Features:**
+- 🎥 Live video stream from camera or demo assets
+- 🔍 Real-time object detection overlay
+- 👤 Automatic face anonymization on capture
+- 🏛️ Municipality selection during scanning
+- 📊 Detection counter showing current counts
+
+*Note: This section will be updated with more details after deployment.*
+
+### ✅ After Capturing
+
+After capturing an image, the review and save workflow begins:
+
+- **Review Page**: Navigate to `/review` to see the captured image
+- **Image Display**: View the captured image with detected objects
+- **Count Adjustment**: Use counter pills to adjust object counts (bottles, cups, utensils)
+- **Fill Gauge**: Adjust the fill percentage using the visual gauge slider
+- **Municipality Info**: See which municipality the inspection is for
+- **Validation**: Zod schema validation before saving
+- **Save to IndexedDB**: Persist inspection data locally
+- **Poster Generation**: Option to generate a PNG poster for the inspection
+
+**Review Features:**
+- ✏️ Adjustable object counts with counter pills
+- 📊 Visual fill percentage gauge
+- 💾 Save inspection to local storage
+- 🎨 Generate poster PNG
+- ✅ Data validation before saving
+
+*Note: This section will be updated with more details after deployment.*
 
 ### 🎬 Demo Mode
 
