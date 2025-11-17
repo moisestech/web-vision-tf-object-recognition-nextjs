@@ -244,7 +244,32 @@ tests/
 public/
   tfjs/            # WASM binaries (required)
   samples/         # Demo assets (optional)
+docs/              # Documentation
+  agents/          # Agent prompts and handoff docs
 ```
+
+## Documentation
+
+Comprehensive documentation is available in the [`docs/`](./docs/) directory:
+
+### Core Documentation
+- **[Architecture](./docs/ARCHITECTURE.md)** - System architecture and design decisions
+- **[Design System](./docs/DESIGN_SYSTEM.md)** - UI components, colors, typography, and design tokens
+- **[Visual Design Plan](./docs/VISUAL_DESIGN_PLAN.md)** - Visual design specifications and implementation details
+- **[Design Implementation Summary](./docs/DESIGN_IMPLEMENTATION_SUMMARY.md)** - Summary of design implementation work
+
+### Development Documentation
+- **[Logging](./docs/LOGGING.md)** - Structured logging system documentation
+- **[shadcn/ui Setup](./docs/SHADCN_SETUP.md)** - shadcn/ui component library setup and configuration
+
+### Agent Documentation
+- **[Agent Prompts](./docs/agents/AGENT_PROMPTS.md)** - Overview of all agent prompts and current status
+- **[Agent Handoff](./docs/agents/AGENT_HANDOFF.md)** - Protocol for agent handoffs and collaboration
+- **[Agent A Prompt](./docs/agents/AGENT_A_PROMPT.md)** - Bootstrapping & Infrastructure
+- **[Agent B Prompt](./docs/agents/AGENT_B_PROMPT.md)** - TensorFlow & Camera
+- **[Agent C Prompt](./docs/agents/AGENT_C_PROMPT.md)** - Review & Data Management
+- **[Agent D Prompt](./docs/agents/AGENT_D_PROMPT.md)** - Poster & Polish
+- **[Agent E Prompt](./docs/agents/AGENT_E_PROMPT.md)** - Testing & CI
 
 ## License
 
