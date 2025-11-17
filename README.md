@@ -1,18 +1,18 @@
-# SOP On-Device AI Demo
+# 🌊 SOP On-Device AI Demo
 
 A one-day, visually impressive Next.js 15 demo with **on-device object detection** and **face anonymization** for the Stop Ocean Pollution mission.
 
-## Features
+## ✨ Features
 
-- **On-device AI**: All AI runs locally in the browser (no PII upload)
-- **Object Detection**: COCO-SSD detects bottles, cups, and utensils
-- **Face Anonymization**: BlazeFace automatically blurs faces on capture
-- **Privacy-first**: All processing happens client-side
-- **Review & Save**: Adjust counts and fill percentage before saving
-- **CSV Export**: Export all inspections as CSV
-- **Poster Generation**: Generate PNG posters for each inspection
+- 🤖 **On-device AI**: All AI runs locally in the browser (no PII upload)
+- 🔍 **Object Detection**: COCO-SSD detects bottles, cups, and utensils
+- 👤 **Face Anonymization**: BlazeFace automatically blurs faces on capture
+- 🔒 **Privacy-first**: All processing happens client-side
+- ✏️ **Review & Save**: Adjust counts and fill percentage before saving
+- 📊 **CSV Export**: Export all inspections as CSV
+- 🎨 **Poster Generation**: Generate PNG posters for each inspection
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 - Next.js 15 (App Router)
 - TypeScript
@@ -23,15 +23,15 @@ A one-day, visually impressive Next.js 15 demo with **on-device object detection
 - Zustand (state management)
 - LocalForage (IndexedDB storage)
 
-## Setup
+## 🚀 Setup
 
-### 1. Install Dependencies
+### 1️⃣ Install Dependencies
 
 ```bash
 npm install
 ```
 
-### 2. Copy TensorFlow.js WASM Files
+### 2️⃣ Copy TensorFlow.js WASM Files
 
 The WASM backend requires binary files to be served from the `public` directory:
 
@@ -41,7 +41,7 @@ cp node_modules/@tensorflow/tfjs-backend-wasm/dist/*.wasm public/tfjs/
 
 This step is **required** for WASM fallback to work.
 
-### 3. Add Demo Assets (Optional)
+### 3️⃣ Add Demo Assets (Optional)
 
 For demo mode (`?demo=1`), add sample assets to `public/samples/`:
 
@@ -50,7 +50,7 @@ For demo mode (`?demo=1`), add sample assets to `public/samples/`:
 
 If these are missing, demo mode will still work but may show errors.
 
-### 4. Run Development Server
+### 4️⃣ Run Development Server
 
 ```bash
 npm run dev
@@ -58,9 +58,9 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000)
 
-## Usage
+## 📱 Usage
 
-### Camera Mode
+### 📷 Camera Mode
 
 1. Navigate to `/scan`
 2. Allow camera access when prompted
@@ -70,11 +70,11 @@ Open [http://localhost:3000](http://localhost:3000)
 6. Review and adjust counts/fill percentage
 7. Save to IndexedDB
 
-### Demo Mode
+### 🎬 Demo Mode
 
 Navigate to `/scan?demo=1` to use sample video instead of camera (useful for testing without camera access).
 
-### Municipality Selection
+### 🏛️ Municipality Selection
 
 The app supports multiple municipalities for showcasing multi-tenant capabilities:
 
@@ -83,25 +83,25 @@ The app supports multiple municipalities for showcasing multi-tenant capabilitie
 - **Query Parameter**: Use `?m={municipalityId}` to set municipality directly
 
 **Supported Municipalities:**
-- Miami (demo-miami) - Miami-Dade County coastal areas
-- Hallandale Beach (demo-hallandale) - Broward County beachfront
-- Key Biscayne (demo-key-biscayne) - Island municipality
-- Fort Lauderdale (demo-fort-lauderdale) - Venice of America
-- Miami Beach (demo-miami-beach) - Art Deco Historic District
-- Coral Gables (demo-coral-gables) - The City Beautiful
+- 🏖️ Miami (demo-miami) - Miami-Dade County coastal areas
+- 🌴 Hallandale Beach (demo-hallandale) - Broward County beachfront
+- 🏝️ Key Biscayne (demo-key-biscayne) - Island municipality
+- 🚤 Fort Lauderdale (demo-fort-lauderdale) - Venice of America
+- 🏛️ Miami Beach (demo-miami-beach) - Art Deco Historic District
+- 🌳 Coral Gables (demo-coral-gables) - The City Beautiful
 
 All inspections are tagged with their municipality ID for filtering and reporting.
 
-### Admin Panel
+### ⚙️ Admin Panel
 
 Navigate to `/admin` to:
-- View all saved inspections
-- Export CSV of all inspections
-- Download poster PNG for each inspection
+- 👀 View all saved inspections
+- 📥 Export CSV of all inspections
+- 🖼️ Download poster PNG for each inspection
 
-## Development
+## 💻 Development
 
-### Structured Logging
+### 📝 Structured Logging
 
 The app includes a comprehensive logging system for debugging and monitoring:
 
@@ -120,10 +120,10 @@ The app includes a comprehensive logging system for debugging and monitoring:
 - `store`: State management
 
 **Log Levels:**
-- `debug`: Detailed debugging information
-- `info`: General information about operations
-- `warn`: Warning messages
-- `error`: Error messages with stack traces
+- 🐛 `debug`: Detailed debugging information
+- ℹ️ `info`: General information about operations
+- ⚠️ `warn`: Warning messages
+- ❌ `error`: Error messages with stack traces
 
 **Using the Logger:**
 
@@ -145,14 +145,14 @@ console.log(JSON.stringify(logs, null, 2));
 // Or use the LogViewer component's export button
 ```
 
-### Memory Monitoring
+### 💾 Memory Monitoring
 
 In development mode, a DevHUD appears showing:
 - TensorFlow backend (webgl/wasm)
 - Number of tensors (watch for leaks)
 - Memory usage
 
-### Memory Leak Detection
+### 🔍 Memory Leak Detection
 
 Use the memory monitor utility:
 
@@ -164,7 +164,7 @@ const stop = logTfMem(2000); // Log every 2 seconds
 stop(); // Stop monitoring
 ```
 
-### Testing
+### 🧪 Testing
 
 All tests are configured to pass. The test suite includes:
 
@@ -174,10 +174,10 @@ npm test
 ```
 
 Tests cover:
-- Math utilities (liters calculation, class tallying)
-- CSV export (formatting and escaping)
-- Image processing (resize and compression)
-- Canvas operations (state management)
+- 🧮 Math utilities (liters calculation, class tallying)
+- 📄 CSV export (formatting and escaping)
+- 🖼️ Image processing (resize and compression)
+- 🎨 Canvas operations (state management)
 
 **E2E Tests:**
 ```bash
@@ -193,42 +193,42 @@ E2E tests verify the complete flow:
 - Municipality selection
 - Data persistence
 
-## Known Limitations
+## ⚠️ Known Limitations
 
-1. **iOS Camera**: Requires HTTPS and user gesture to start
-2. **Storage Limits**: Safari has ~50MB IndexedDB limit
-3. **Model Loading**: First load can take 5-10 seconds (models are cached)
-4. **Face Detection**: May miss side profiles or occluded faces
-5. **Detection Accuracy**: Small/distant objects may be missed
+1. 📱 **iOS Camera**: Requires HTTPS and user gesture to start
+2. 💾 **Storage Limits**: Safari has ~50MB IndexedDB limit
+3. ⏱️ **Model Loading**: First load can take 5-10 seconds (models are cached)
+4. 👤 **Face Detection**: May miss side profiles or occluded faces
+5. 🔍 **Detection Accuracy**: Small/distant objects may be missed
 
-## Troubleshooting
+## 🔧 Troubleshooting
 
-### WebGL Not Available
+### 🎮 WebGL Not Available
 
 The app automatically falls back to WASM. If both fail:
 - Check browser compatibility
 - Ensure WASM files are in `public/tfjs/`
 - Check browser console for errors
 
-### Camera Not Working
+### 📷 Camera Not Working
 
 - Ensure HTTPS (required for camera access)
 - Check browser permissions
 - Try demo mode: `/scan?demo=1`
 
-### Memory Leaks
+### 💾 Memory Leaks
 
 - Check DevHUD tensor count (should not grow unbounded)
 - Ensure all TF ops are wrapped in `tf.tidy()`
 - Monitor with `logTfMem()` utility
 
-### Models Not Loading
+### 🤖 Models Not Loading
 
 - Check network tab for CDN requests
 - Models load from CDN first, fallback to local if available
 - Ensure internet connection for first load
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 src/
@@ -248,29 +248,29 @@ docs/              # Documentation
   agents/          # Agent prompts and handoff docs
 ```
 
-## Documentation
+## 📚 Documentation
 
 Comprehensive documentation is available in the [`docs/`](./docs/) directory:
 
-### Core Documentation
-- **[Architecture](./docs/ARCHITECTURE.md)** - System architecture and design decisions
-- **[Design System](./docs/DESIGN_SYSTEM.md)** - UI components, colors, typography, and design tokens
-- **[Visual Design Plan](./docs/VISUAL_DESIGN_PLAN.md)** - Visual design specifications and implementation details
-- **[Design Implementation Summary](./docs/DESIGN_IMPLEMENTATION_SUMMARY.md)** - Summary of design implementation work
+### 📖 Core Documentation
+- 🏗️ **[Architecture](./docs/ARCHITECTURE.md)** - System architecture and design decisions
+- 🎨 **[Design System](./docs/DESIGN_SYSTEM.md)** - UI components, colors, typography, and design tokens
+- 🖼️ **[Visual Design Plan](./docs/VISUAL_DESIGN_PLAN.md)** - Visual design specifications and implementation details
+- ✅ **[Design Implementation Summary](./docs/DESIGN_IMPLEMENTATION_SUMMARY.md)** - Summary of design implementation work
 
-### Development Documentation
-- **[Logging](./docs/LOGGING.md)** - Structured logging system documentation
-- **[shadcn/ui Setup](./docs/SHADCN_SETUP.md)** - shadcn/ui component library setup and configuration
+### 🛠️ Development Documentation
+- 📝 **[Logging](./docs/LOGGING.md)** - Structured logging system documentation
+- 🧩 **[shadcn/ui Setup](./docs/SHADCN_SETUP.md)** - shadcn/ui component library setup and configuration
 
-### Agent Documentation
-- **[Agent Prompts](./docs/agents/AGENT_PROMPTS.md)** - Overview of all agent prompts and current status
-- **[Agent Handoff](./docs/agents/AGENT_HANDOFF.md)** - Protocol for agent handoffs and collaboration
-- **[Agent A Prompt](./docs/agents/AGENT_A_PROMPT.md)** - Bootstrapping & Infrastructure
-- **[Agent B Prompt](./docs/agents/AGENT_B_PROMPT.md)** - TensorFlow & Camera
-- **[Agent C Prompt](./docs/agents/AGENT_C_PROMPT.md)** - Review & Data Management
-- **[Agent D Prompt](./docs/agents/AGENT_D_PROMPT.md)** - Poster & Polish
-- **[Agent E Prompt](./docs/agents/AGENT_E_PROMPT.md)** - Testing & CI
+### 🤖 Agent Documentation
+- 📋 **[Agent Prompts](./docs/agents/AGENT_PROMPTS.md)** - Overview of all agent prompts and current status
+- 🤝 **[Agent Handoff](./docs/agents/AGENT_HANDOFF.md)** - Protocol for agent handoffs and collaboration
+- 🔧 **[Agent A Prompt](./docs/agents/AGENT_A_PROMPT.md)** - Bootstrapping & Infrastructure
+- 🎥 **[Agent B Prompt](./docs/agents/AGENT_B_PROMPT.md)** - TensorFlow & Camera
+- 💾 **[Agent C Prompt](./docs/agents/AGENT_C_PROMPT.md)** - Review & Data Management
+- 🎨 **[Agent D Prompt](./docs/agents/AGENT_D_PROMPT.md)** - Poster & Polish
+- 🧪 **[Agent E Prompt](./docs/agents/AGENT_E_PROMPT.md)** - Testing & CI
 
-## License
+## 📄 License
 
 MIT
