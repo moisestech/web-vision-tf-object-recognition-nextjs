@@ -15,8 +15,8 @@ A one-day, visually impressive Next.js 15 demo with **on-device object detection
   - [🏛️ Municipality Selection](#️-municipality-selection)
   - [⚙️ Admin Panel](#️-admin-panel)
 - [💻 Development](#-development)
-- [⚠️ Known Limitations](#️-known-limitations)
-- [🔧 Troubleshooting](#-troubleshooting)
+- [🧪 Testing](#-testing)
+- [⚠️ Known Limitations & 🔧 Troubleshooting](#️-known-limitations--troubleshooting)
 - [📁 Project Structure](#-project-structure)
 - [📚 Documentation](#-documentation)
 - [📄 License](#-license)
@@ -164,132 +164,54 @@ Navigate to `/admin` to:
 
 ## 💻 Development
 
-### 📝 Structured Logging
+For detailed development information, see the [Development Guide](./docs/DEVELOPMENT.md).
 
-The app includes a comprehensive logging system for debugging and monitoring:
+**Quick Overview:**
+- 📝 **Structured Logging**: Comprehensive logging system with LogViewer component
+- 💾 **Memory Monitoring**: DevHUD shows TensorFlow backend, tensor count, and memory usage
+- 🔍 **Memory Leak Detection**: Utility functions for tracking memory usage
+- 🛠️ **Development Tools**: TypeScript, ESLint, and debugging utilities
 
-**Log Viewer (Development Mode)**
-- Automatically appears in the top-left corner in development
-- Shows real-time logs with categories, levels, and structured data
-- Export logs as JSON for analysis
-- Clear logs button for reset
-
-**Log Categories:**
-- `tf-init`: TensorFlow.js initialization
-- `detection`: Object detection operations
-- `camera`: Camera and capture operations
-- `review`: Review page actions
-- `data`: Data persistence operations
-- `store`: State management
-
-**Log Levels:**
-- 🐛 `debug`: Detailed debugging information
-- ℹ️ `info`: General information about operations
-- ⚠️ `warn`: Warning messages
-- ❌ `error`: Error messages with stack traces
-
-**Using the Logger:**
-
-```typescript
-import { log } from '@/lib/utils/logger';
-
-log.info('category', 'Message', { data: 'value' });
-log.error('category', 'Error message', error, { context: 'data' });
-```
-
-**Exporting Logs:**
-
-In the browser console:
-```javascript
-// Get logs as JSON
-const logs = log.getLogs();
-console.log(JSON.stringify(logs, null, 2));
-
-// Or use the LogViewer component's export button
-```
-
-### 💾 Memory Monitoring
-
-In development mode, a DevHUD appears showing:
-- TensorFlow backend (webgl/wasm)
-- Number of tensors (watch for leaks)
-- Memory usage
-
-### 🔍 Memory Leak Detection
-
-Use the memory monitor utility:
-
-```typescript
-import { logTfMem } from '@/lib/utils/dev/memory';
-
-const stop = logTfMem(2000); // Log every 2 seconds
-// ... do work ...
-stop(); // Stop monitoring
-```
-
-### 🧪 Testing
-
-All tests are configured to pass. The test suite includes:
-
-**Unit Tests:**
+**Quick Commands:**
 ```bash
-npm test
+npm run dev          # Start development server
+npm run lint         # Run ESLint
+npm test             # Run unit tests
+npm run test:e2e     # Run E2E tests
 ```
 
-Tests cover:
-- 🧮 Math utilities (liters calculation, class tallying)
-- 📄 CSV export (formatting and escaping)
-- 🖼️ Image processing (resize and compression)
-- 🎨 Canvas operations (state management)
+## 🧪 Testing
 
-**E2E Tests:**
+For complete testing documentation, see the [Testing Guide](./docs/TESTING.md).
+
+**Test Coverage:**
+- ✅ **6 Unit Tests**: Math utilities, CSV export, image processing, canvas operations
+- ✅ **6 E2E Tests**: Complete workflows, municipality selection, CSV export, poster download, error handling
+- ✅ **Total: 12 Tests** across the test suite
+
+**Quick Commands:**
 ```bash
-# E2E tests (requires dev server running)
-npm run test:e2e
-
-# E2E tests with UI
-npm run test:e2e:ui
+npm test             # Run unit tests
+npm run test:e2e     # Run E2E tests
+npm run test:e2e:ui  # Run E2E tests with UI
 ```
 
-E2E tests verify the complete flow:
-- Scan → Review → Admin in demo mode
-- Municipality selection
-- Data persistence
+## ⚠️ Known Limitations & 🔧 Troubleshooting
 
-## ⚠️ Known Limitations
+For detailed troubleshooting and known limitations, see the [Troubleshooting Guide](./docs/TROUBLESHOOTING.md).
 
-1. 📱 **iOS Camera**: Requires HTTPS and user gesture to start
-2. 💾 **Storage Limits**: Safari has ~50MB IndexedDB limit
-3. ⏱️ **Model Loading**: First load can take 5-10 seconds (models are cached)
-4. 👤 **Face Detection**: May miss side profiles or occluded faces
-5. 🔍 **Detection Accuracy**: Small/distant objects may be missed
+**Quick Reference:**
+- 📱 **iOS Camera**: Requires HTTPS and user gesture
+- 💾 **Storage Limits**: Safari has ~50MB IndexedDB limit
+- ⏱️ **Model Loading**: First load takes 5-10 seconds (cached after)
+- 👤 **Face Detection**: May miss side profiles or occluded faces
+- 🔍 **Detection Accuracy**: Small/distant objects may be missed
 
-## 🔧 Troubleshooting
-
-### 🎮 WebGL Not Available
-
-The app automatically falls back to WASM. If both fail:
-- Check browser compatibility
-- Ensure WASM files are in `public/tfjs/`
-- Check browser console for errors
-
-### 📷 Camera Not Working
-
-- Ensure HTTPS (required for camera access)
-- Check browser permissions
-- Try demo mode: `/scan?demo=1`
-
-### 💾 Memory Leaks
-
-- Check DevHUD tensor count (should not grow unbounded)
-- Ensure all TF ops are wrapped in `tf.tidy()`
-- Monitor with `logTfMem()` utility
-
-### 🤖 Models Not Loading
-
-- Check network tab for CDN requests
-- Models load from CDN first, fallback to local if available
-- Ensure internet connection for first load
+**Common Issues:**
+- 🎮 WebGL not available → Automatically falls back to WASM
+- 📷 Camera not working → Check HTTPS and permissions, try demo mode
+- 💾 Memory leaks → Monitor DevHUD, ensure TF ops in `tf.tidy()`
+- 🤖 Models not loading → Check network, CDN availability
 
 ## 📁 Project Structure
 
@@ -322,6 +244,9 @@ Comprehensive documentation is available in the [`docs/`](./docs/) directory:
 - ✅ **[Design Implementation Summary](./docs/DESIGN_IMPLEMENTATION_SUMMARY.md)** - Summary of design implementation work
 
 ### 🛠️ Development Documentation
+- 💻 **[Development Guide](./docs/DEVELOPMENT.md)** - Development setup, tools, logging, and memory monitoring
+- 🧪 **[Testing Guide](./docs/TESTING.md)** - Testing approach, coverage, and how to run tests
+- 🔧 **[Troubleshooting](./docs/TROUBLESHOOTING.md)** - Common issues, known limitations, and solutions
 - 📝 **[Logging](./docs/LOGGING.md)** - Structured logging system documentation
 - 🧩 **[shadcn/ui Setup](./docs/SHADCN_SETUP.md)** - shadcn/ui component library setup and configuration
 
