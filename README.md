@@ -88,7 +88,7 @@ The home page serves as the entry point to the application, featuring:
 - **Visual Design**: Clean, modern interface with ocean-themed styling
 - **Responsive Layout**: Optimized for both desktop and mobile devices
 
-*Note: This section will be updated with more details after deployment.*
+<img width="1302" height="904" alt="sop-object-detection-tfjs-homepage" src="https://github.com/user-attachments/assets/0a919449-670a-4b6b-bd50-9757d86fe1c9" />
 
 ### 📷 Camera Tracking Page
 
@@ -109,7 +109,7 @@ The camera tracking page (`/scan`) is where the real-time object detection happe
 - 🏛️ Municipality selection during scanning
 - 📊 Detection counter showing current counts
 
-*Note: This section will be updated with more details after deployment.*
+<img width="2056" height="1329" alt="sop-object-detection-tfjs-camera-tracking" src="https://github.com/user-attachments/assets/296e810d-56bc-4ffc-b22c-10c1851cb0fd" />
 
 ### ✅ After Capturing
 
@@ -131,7 +131,7 @@ After capturing an image, the review and save workflow begins:
 - 🎨 Generate poster PNG
 - ✅ Data validation before saving
 
-*Note: This section will be updated with more details after deployment.*
+<img width="629" height="815" alt="sop-object-detection-tfjs-after-capturing" src="https://github.com/user-attachments/assets/53e523fb-b986-49a1-86a4-dc50a0260d10" />
 
 ### 🎬 Demo Mode
 
