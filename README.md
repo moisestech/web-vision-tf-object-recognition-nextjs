@@ -239,6 +239,7 @@ Comprehensive documentation is available in the [`docs/`](./docs/) directory:
 
 ### 📖 Core Documentation
 - 🏗️ **[Architecture](./docs/ARCHITECTURE.md)** - System architecture and design decisions
+- 📊 **[Data Model](./docs/DATA_MODEL.md)** - Complete data model with entity relationships and mermaid diagrams
 - 🎨 **[Design System](./docs/DESIGN_SYSTEM.md)** - UI components, colors, typography, and design tokens
 - 🖼️ **[Visual Design Plan](./docs/VISUAL_DESIGN_PLAN.md)** - Visual design specifications and implementation details
 - ✅ **[Design Implementation Summary](./docs/DESIGN_IMPLEMENTATION_SUMMARY.md)** - Summary of design implementation work
